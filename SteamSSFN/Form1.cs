@@ -111,7 +111,7 @@ namespace SteamSSFN
         {
             if (File.Exists(textBox2.Text + "/steam.exe"))
             {
-                System.Diagnostics.Process.Start(textBox2.Text, "-noreactlogin");
+                System.Diagnostics.Process.Start(textBox2.Text + "/steam.exe", "-noreactlogin");
             }
             else
             {
