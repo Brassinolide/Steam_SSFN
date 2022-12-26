@@ -118,5 +118,52 @@ namespace SteamSSFN
                 MessageBox.Show("您确定您选择的Steam路径准确无误？", "错误");
             }
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (File.Exists("temp")) File.Delete("temp");
+            string key = textBox3.Text;
+            string[] keyarr = key.Split(new string[] { "----" }, StringSplitOptions.None);
+            if (keyarr.Length >= 3)
+            {
+                string login = keyarr[0].ToString();
+                string password = keyarr[1].ToString();
+                string loginssfn = keyarr[2].ToString();
+                HttpDownloadFile("https://ssfnbox.com/download/" + loginssfn, "temp");
+                string ssfnURL = GetBetweenStr(File.ReadAllLines("temp")[12], "window.location.assign(\"", "\"");
+                if (string.IsNullOrEmpty(ssfnURL))
+                {
+                    MessageBox.Show("未找到SSFN", "错误");
+                }
+                else
+                {
+                    if (File.Exists(textBox2.Text + "/steam.exe"))
+                    {
+                        string[] searchfile = Directory.GetFiles(textBox2.Text, "ssfn*").Select(path => Path.GetFileName(path)).ToArray();
+
+                        foreach (string ssfn in searchfile)
+                        {
+                            if (File.Exists(textBox2.Text + "\\" + ssfn))
+                            {
+                                File.Delete(textBox2.Text + "\\" + ssfn);
+                            }
+                        }
+                        HttpDownloadFile("https://ssfnbox.com" + ssfnURL, "temp");
+                        File.Move("temp", textBox2.Text + "/" + loginssfn);
+                        if (checkBox1.Checked == true)
+                        {
+                            System.Diagnostics.Process.Start(textBox2.Text + "/steam.exe", "-noreactlogin -login" + login + " " + password);
+                        }
+                        MessageBox.Show("一键上号成功");
+                    }
+                    else MessageBox.Show("您确定您选择的Steam路径准确无误？", "错误");
+                }   
+            }
+        }
     }
 }

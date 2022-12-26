@@ -1,0 +1,11 @@
+E:\helloworld\Steam_SSFN\SteamSSFN\bin\Debug\SteamSSFN.exe.config
+E:\helloworld\Steam_SSFN\SteamSSFN\bin\Debug\SteamSSFN.exe
+E:\helloworld\Steam_SSFN\SteamSSFN\bin\Debug\SteamSSFN.pdb
+E:\helloworld\Steam_SSFN\SteamSSFN\obj\Debug\SteamSSFN.csproj.AssemblyReference.cache
+E:\helloworld\Steam_SSFN\SteamSSFN\obj\Debug\SteamSSFN.csproj.SuggestedBindingRedirects.cache
+E:\helloworld\Steam_SSFN\SteamSSFN\obj\Debug\SteamSSFN.Form1.resources
+E:\helloworld\Steam_SSFN\SteamSSFN\obj\Debug\SteamSSFN.Properties.Resources.resources
+E:\helloworld\Steam_SSFN\SteamSSFN\obj\Debug\SteamSSFN.csproj.GenerateResource.cache
+E:\helloworld\Steam_SSFN\SteamSSFN\obj\Debug\SteamSSFN.csproj.CoreCompileInputs.cache
+E:\helloworld\Steam_SSFN\SteamSSFN\obj\Debug\SteamSSFN.exe
+E:\helloworld\Steam_SSFN\SteamSSFN\obj\Debug\SteamSSFN.pdb
