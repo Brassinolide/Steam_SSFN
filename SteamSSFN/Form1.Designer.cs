@@ -41,6 +41,7 @@ namespace SteamSSFN
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -52,6 +53,7 @@ namespace SteamSSFN
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "SSFN";
+            this.label1.Visible = false;
             // 
             // textBox1
             // 
@@ -60,6 +62,7 @@ namespace SteamSSFN
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(373, 22);
             this.textBox1.TabIndex = 1;
+            this.textBox1.Visible = false;
             // 
             // button2
             // 
@@ -69,6 +72,7 @@ namespace SteamSSFN
             this.button2.TabIndex = 3;
             this.button2.Text = "运行Steam";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // checkBox1
@@ -82,6 +86,8 @@ namespace SteamSSFN
             this.checkBox1.TabIndex = 4;
             this.checkBox1.Text = "自动运行Steam";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Visible = false;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label2
             // 
@@ -120,6 +126,7 @@ namespace SteamSSFN
             this.button4.TabIndex = 8;
             this.button4.Text = "写入授权";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
             this.button4.Click += new System.EventHandler(this.button1_Click);
             // 
             // label3
@@ -131,6 +138,7 @@ namespace SteamSSFN
             this.label3.Size = new System.Drawing.Size(255, 16);
             this.label3.TabIndex = 9;
             this.label3.Text = "本程序会自动为您启动旧版本Steam";
+            this.label3.Visible = false;
             // 
             // label4
             // 
@@ -162,11 +170,22 @@ namespace SteamSSFN
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("宋体", 12F);
+            this.label5.Location = new System.Drawing.Point(47, 60);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(271, 16);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "请您手动设置steam以大屏幕模式运行";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 156);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label4);
@@ -204,6 +223,7 @@ namespace SteamSSFN
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label5;
     }
 }
 
