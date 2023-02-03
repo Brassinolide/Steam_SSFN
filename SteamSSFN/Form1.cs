@@ -157,7 +157,7 @@ namespace SteamSSFN
                         File.Move("temp", textBox2.Text + "/" + loginssfn);
                         if (checkBox1.Checked == true)
                         {
-                            System.Diagnostics.Process.Start(textBox2.Text + "/steam.exe", "-login " + login +" "+ password+ " -noreactlogin -rememberpassword -windowed ");
+                            System.Diagnostics.Process.Start(textBox2.Text + "/steam.exe", "-login " + login +" "+ password+ " -noreactlogin -rememberpassword -windowed -bigpicture ");
                         }
                         MessageBox.Show("一键上号成功");
                     }
