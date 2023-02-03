@@ -178,7 +178,7 @@ namespace SteamSSFN
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(271, 16);
             this.label5.TabIndex = 13;
-            this.label5.Text = "请您手动设置steam以大屏幕模式运行";
+            this.label5.Text = "程序会自动以窗口化大屏幕模式运行steam";
             // 
             // Form1
             // 
