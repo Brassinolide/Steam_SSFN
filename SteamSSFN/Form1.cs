@@ -157,13 +157,18 @@ namespace SteamSSFN
                         File.Move("temp", textBox2.Text + "/" + loginssfn);
                         if (checkBox1.Checked == true)
                         {
-                            System.Diagnostics.Process.Start(textBox2.Text + "/steam.exe", "-login " + login +" "+ password+ " -noreactlogin");
+                            System.Diagnostics.Process.Start(textBox2.Text + "/steam.exe", "-login " + login +" "+ password+ " -noreactlogin -rememberpassword -windowed -bigpicture ");
                         }
                         MessageBox.Show("一键上号成功");
                     }
                     else MessageBox.Show("您确定您选择的Steam路径准确无误？", "错误");
                 }   
             }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
