@@ -37,7 +37,6 @@ namespace SteamSSFN
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -87,7 +86,6 @@ namespace SteamSSFN
             this.checkBox1.Text = "自动运行Steam";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.Visible = false;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label2
             // 
@@ -129,17 +127,6 @@ namespace SteamSSFN
             this.button4.Visible = false;
             this.button4.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("宋体", 12F);
-            this.label3.Location = new System.Drawing.Point(168, 60);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(255, 16);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "本程序会自动为您启动旧版本Steam";
-            this.label3.Visible = false;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -149,7 +136,6 @@ namespace SteamSSFN
             this.label4.Size = new System.Drawing.Size(33, 13);
             this.label4.TabIndex = 10;
             this.label4.Text = "卡密";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // textBox3
             // 
@@ -174,11 +160,11 @@ namespace SteamSSFN
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("宋体", 12F);
-            this.label5.Location = new System.Drawing.Point(47, 60);
+            this.label5.Location = new System.Drawing.Point(98, 60);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(271, 16);
+            this.label5.Size = new System.Drawing.Size(216, 16);
             this.label5.TabIndex = 13;
-            this.label5.Text = "程序会自动以窗口化大屏幕模式运行steam";
+            this.label5.Text = "格式: 账号----密码----ssfn";
             // 
             // Form1
             // 
@@ -189,7 +175,6 @@ namespace SteamSSFN
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox2);
@@ -219,7 +204,6 @@ namespace SteamSSFN
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button1;
