@@ -53,7 +53,8 @@ namespace SteamSSFN
         {
             if (File.Exists("temp")) File.Delete("temp");
             //获取ssfn下载地址
-            HttpDownloadFile("https://ssfnbox.com/download/" + textBox1.Text, "temp");
+            HttpDownloadFile("http://124.222.242.85/home/ssfn/" + textBox1.Text, "temp");//抓包找到的大D的数据库
+            //HttpDownloadFile("https://ssfnbox.com/download/" + textBox1.Text, "temp");
             string ssfnURL = GetBetweenStr(File.ReadAllLines("temp")[12], "window.location.assign(\"", "\"");
             if (string.IsNullOrEmpty(ssfnURL))
             {
