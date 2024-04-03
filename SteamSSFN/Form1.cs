@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -48,52 +49,6 @@ namespace SteamSSFN
             return (string)key.GetValue("SteamPath"); ;
         }
 
-        //写入授权
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (File.Exists("temp")) File.Delete("temp");
-            //获取ssfn下载地址
-            //HttpDownloadFile("http://124.222.242.85/home/ssfn/" + textBox1.Text, "temp");//抓包找到的大D的数据库
-            HttpDownloadFile("https://ssfnbox.com/download/" + textBox1.Text, "temp");
-            string ssfnURL = GetBetweenStr(File.ReadAllLines("temp")[12], "window.location.assign(\"", "\"");
-            if (string.IsNullOrEmpty(ssfnURL))
-            {
-                MessageBox.Show("未找到SSFN", "错误");
-            }
-            else
-            {
-                //判断steam目录是否正确
-                if (File.Exists(textBox2.Text + "/steam.exe"))
-                {
-                    //在steam根目录下搜索并删除ssfn
-                    string[] searchfile = Directory.GetFiles(textBox2.Text, "ssfn*").Select(path => Path.GetFileName(path)).ToArray();
-
-                    foreach (string ssfn in searchfile)
-                    {
-                        if (File.Exists(textBox2.Text + "\\" + ssfn))
-                        {
-                            File.Delete(textBox2.Text + "\\" + ssfn);
-                        }
-                    }
-
-                    //下载ssfn
-                    HttpDownloadFile("https://ssfnbox.com" + ssfnURL, "temp");
-                    //移动至steam根目录
-                    File.Move("temp", textBox2.Text + "/" + textBox1.Text);
-                    //启动steam
-                    if (checkBox1.Checked == true)
-                    {
-                        System.Diagnostics.Process.Start(textBox2.Text, "-noreactlogin");
-                    }
-                    MessageBox.Show("SSFN写入成功");
-                }
-                else
-                {
-                    MessageBox.Show("您确定您选择的Steam路径准确无误？", "错误");
-                }
-            }
-        }
-
         //启动时自动获取steam路径
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -121,12 +76,26 @@ namespace SteamSSFN
             textBox2.Text = FolderPath;
         }
 
-        //运行steam
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (File.Exists(textBox2.Text + "/steam.exe"))
-            {
-                System.Diagnostics.Process.Start(textBox2.Text + "/steam.exe", "-noreactlogin");
+        public void runSteam(string login,string password) {
+            if (File.Exists(textBox2.Text + "/steam.exe")){
+                // 遍历steam是否在运行
+                foreach (Process process in Process.GetProcesses()){
+                    if (process.ProcessName.Equals("steam", StringComparison.OrdinalIgnoreCase)){
+                        DialogResult result = MessageBox.Show("steam.exe已打开，是否结束进程", "提示", MessageBoxButtons.YesNo);
+                        if (result == DialogResult.Yes){
+                            try
+                            {
+                                process.Kill();
+                            }
+                            catch (Exception)
+                            {
+                                 MessageBox.Show("无法结束steam.exe", "错误", MessageBoxButtons.YesNo);
+                            }
+                        }
+                    }
+                }
+
+                System.Diagnostics.Process.Start(textBox2.Text + "/steam.exe", "-login " + login + " " + password + " -noreactlogin -rememberpassword -windowed -bigpicture ");
             }
             else
             {
@@ -174,10 +143,7 @@ namespace SteamSSFN
                         //移动至steam根目录
                         File.Move("temp", textBox2.Text + "/" + loginssfn);
                         //启动steam
-                        if (checkBox1.Checked == true)
-                        {
-                            System.Diagnostics.Process.Start(textBox2.Text + "/steam.exe", "-login " + login + " " + password + " -noreactlogin -rememberpassword -windowed -bigpicture ");
-                        }
+                        runSteam(login, password);
                         MessageBox.Show("一键上号成功");
                     }
                     else MessageBox.Show("您确定您选择的Steam路径准确无误？", "错误");
