@@ -100,9 +100,6 @@ namespace SteamSSFN
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("宋体", 12F);
-            this.label5.Location = new System.Drawing.Point(51, 28);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(215, 16);
             this.label5.TabIndex = 13;
             this.label5.Text = "格式: 账号----密码----ssfn";
             // 
